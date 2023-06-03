@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TUGAS 1 MSIM4401</title>
+    <script src="https://unpkg.com/vue@3.2.21/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }} {{ count }}</h1>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            count: 50,
+            message: "Hallo saya RIKO APRILIAN NIM 041597974, detik berjalan mundur dimulai dari :",
+          };
+        },
+        methods: {
+          startCountdown() {
+            let countdownInterval = setInterval(() => {
+              if (this.count > 0) {
+                this.count--;
+              } else {
+                clearInterval(countdownInterval);
+              }
+            }, 1000);
+          },
+        },
+        
+        mounted() {
+          this.startCountdown();
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
